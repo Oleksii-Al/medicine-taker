@@ -19,6 +19,6 @@ from django.urls import path, include
 from medication import views as medication_views
 
 urlpatterns = [
-    path('medication/', medication_views.medication, name='medication'),
+    path('', medication_views.medication_list, name='index'),
     path('admin/', admin.site.urls),
 ]
