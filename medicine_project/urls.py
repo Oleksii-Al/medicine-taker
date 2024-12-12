@@ -20,5 +20,6 @@ from medication import views as medication_views
 
 urlpatterns = [
     path('', medication_views.medication_list, name='index'),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
 ]
