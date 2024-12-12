@@ -15,22 +15,32 @@
 
 <body>
     <nav>
-    {% if user.is_authenticated %}
-    <li class="nav-item">
-        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-            href="{% url 'account_logout' %}">Logout</a>
-    </li>
-    {% else %}
-    <li class="nav-item">
-        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-            href="{% url 'account_signup' %}">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-            href="{% url 'account_login' %}">Login</a>
-    </li>
-    {% endif %}
-</nav>
+        {% if user.is_authenticated %}
+        <p>User is authenticated: {{ user.is_authenticated }}</p>
+        <p>Current user: {{ user.username }}</p>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == medication_url %}active{% endif %}"
+                href="{% url 'medication' %}">Medication List</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_signup' %}">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_login' %}">Login</a>
+        </li>
+        {% endif %}
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
 </body>
 
 </html>
