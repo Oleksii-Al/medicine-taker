@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -16,6 +16,29 @@ def medication_list(request):
             "medications": medications,
         },
     )
+
+@login_required
+def medication_add(request):
+
+    if request.method == "POST":
+        medication_form = MedicationCardForm(request.POST)
+        if medication_form.is_valid():
+            medication = medication_form.save(commit=False)
+            medication.user = request.user
+            medication.save()
+            return redirect('medication')
+    else:
+        medication_form = MedicationCardForm()
+
+    return render(
+        request,
+        "medication/medication_add.html",
+        {
+            "medication_form": medication_form,
+        }
+        )
+
+
 
 # def medication_edit(requst, name, medication_id):
 

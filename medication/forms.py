@@ -4,7 +4,7 @@ from .models import MedicationCard, DAYS
 class MedicationCardForm(forms.ModelForm):
     class Meta:
         model = MedicationCard
-        fields = ('name', 'user', 'days', 'time', 'doses_per_day', 'interval_between_doses')
+        fields = ('name', 'days', 'time', 'doses_per_day', 'interval_between_doses')
 
     days = forms.MultipleChoiceField(
         choices = DAYS,
