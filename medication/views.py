@@ -67,3 +67,21 @@ def medication_edit(request, medication_id):
             "medication_form": medication_form,
         }
     )
+
+@login_required
+def medication_delete(request, medication_id):
+
+    medication = get_object_or_404(MedicationCard, pk=medication_id)
+
+    if medication.user == request.user:
+        medication.delete()
+        messages.success(request, "Medication deleted!")
+        return redirect("medication")
+
+    else:
+        messages.error(
+            request, "You don't have permission to delete this medication."
+        )
+        return redirect("medication")
+    
+    
