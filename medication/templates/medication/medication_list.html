@@ -21,7 +21,7 @@
             <td>{{ medication.time }}</td>
             <td>{{ medication.doses_per_day }}</td>
             <td>
-                <a href="#">Edit</a> |
+                <a href="{% url 'medication_edit' medication.id %}">Edit</a> |
                 <a href="#">Delete</a>
             </td>
         </tr>

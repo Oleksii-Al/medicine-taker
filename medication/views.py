@@ -39,24 +39,31 @@ def medication_add(request):
         )
 
 
+@login_required
+def medication_edit(request, medication_id):
 
-# def medication_edit(requst, name, medication_id):
+    medication = get_object_or_404(MedicationCard, pk=medication_id)
 
-#     queryset = MedicationCard.objects.all()
-#     medication = get_object_or_404(queryset, name=name)
-#     medication_form = MedicationCardForm(data=request.POST, instance=medication)
-    
-#     if request.method == "POST" and medication_form.is_valid() and request.user == medication.user:
-#         medication = medication_form.save(commit=False)
-#         medication.save()
-#         messages.add_message(
-#             request, messages.SUCCESS,
-#             "Medication Updated!"
-#         )
-#     else:
-#         messages.add_message(
-#             request, messages.ERROR,
-#             "Error updating medication!"
-#         )
-#     return HttpRenponseRedirect(reverse("medication_detail", args=[name]))
+    if medication.user != request.user:
+        messages.error(
+            request, "You don't have permission to edit this medication."
+        )
+        return redirect("medication")
 
+    if request.method == "POST":
+        medication_form = MedicationCardForm(request.POST, instance=medication)
+        if medication_form.is_valid():
+            medication_form.save()
+            messages.success(request, "Medication updated successfully!")
+            return redirect("medication")
+    else:
+        medication_form = MedicationCardForm(instance=medication)
+
+
+    return render(
+        request,
+        "medication/medication_edit.html",
+        {
+            "medication_form": medication_form,
+        }
+    )
