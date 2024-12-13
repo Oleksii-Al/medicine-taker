@@ -22,6 +22,9 @@
             <a class="nav-link {% if request.path == medication_url %}active{% endif %}"
                 href="{% url 'medication' %}">Medication List</a>
         </li>
+        <li>
+            <a href="{{ url 'medication_add' }}">Add Medication</a>
+        </li>
         <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
                 href="{% url 'account_logout' %}">Logout</a>
@@ -39,18 +42,18 @@
     </nav>
     <div>
         {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible
+        <div class="alert {{ message.tags }} alert-dismissible
           fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-                </div>
-                {% endfor %}
+            {{ message | safe }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+        </div>
+        {% endfor %}
     </div>
     <main>
         {% block content %}
         {% endblock content %}
     </main>
-    
+
     {% block copyright %}
     Made by me
     {% endblock %}

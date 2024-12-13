@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from .models import MedicationCard
+from .models import MedicationCard, MedicationSchedule, DAYS
 from .forms import MedicationCardForm
 
 # Create your views here.
@@ -83,5 +83,32 @@ def medication_delete(request, medication_id):
             request, "You don't have permission to delete this medication."
         )
         return redirect("medication")
+
+@login_required
+def medication_week(request):
+    medications = MedicationCard.objects.filter(user = request.user)
+    schedule = {
+        "Monday": [],
+        "Tuesday": [],
+        "Wednesday": [],
+        "Thursday": [],
+        "Friday": [],
+        "Saturday": [],
+        "Sunday": [],
+    }
+    for medication in medications:
+        for day in medication.days:
+            schedule[day].append(medication)
+
+    for day in schedule:
+           schedule[day] = sorted(schedule[day], key=lambda medication: medication.time)
     
+    return render(
+        request,
+        "medication/schedule.html",
+        {
+            "schedule": schedule,
+        }
+    )
+                 
     

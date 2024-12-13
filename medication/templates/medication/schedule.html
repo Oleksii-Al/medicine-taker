@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Medication Schedule</h1>
+<div class="schedule-container">
+    {% for day, medications in schedule.items %}
+    <div class="day-schedule">
+        <table>
+            <tr>
+                <th>{{ day }}</th>
+            </tr>
+            <tr>
+                <th>Medication Name</th>
+                <th>Medication Time</th>
+            </tr>
+
+            {% for medication in medications %}
+            <tr>
+                <td>{{ medication.name }}</td>
+                <td>{{ medication.time }}</td>
+                <td><a href="#">Take</a></td>
+                <td><a href="{{ url 'medication_edit' medication.id}}">Edit</a></td>
+                <td><a href="{{ url 'medication_delete' medication.id}}">Delete</a></td>
+            <tr>
+
+                {% endfor %}
+
+
+        </table>
+        <!-- <h2>{{ day }}</h2>
+            <ul>
+                {% for medication in medications %}
+                    <li>
+                        {{ medication.name }} at {{ medication.time }}
+                        <button>Take</button>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </li>
+                {% endfor %}
+            </ul> -->
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
