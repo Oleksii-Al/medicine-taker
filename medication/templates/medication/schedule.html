@@ -20,25 +20,15 @@
                 <td>{{ medication.name }}</td>
                 <td>{{ medication.time }}</td>
                 <td><a href="#">Take</a></td>
-                <td><a href="{{ url 'medication_edit' medication.id}}">Edit</a></td>
-                <td><a href="{{ url 'medication_delete' medication.id}}">Delete</a></td>
+                <td><a href="{% url 'medication_edit' medication.id %}">Edit</a></td>
+                <td><a href="{% url 'medication_delete' medication.id %}" onclick="return confirm('Are you sure?')">Delete</a></td>
             <tr>
 
                 {% endfor %}
 
 
         </table>
-        <!-- <h2>{{ day }}</h2>
-            <ul>
-                {% for medication in medications %}
-                    <li>
-                        {{ medication.name }} at {{ medication.time }}
-                        <button>Take</button>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </li>
-                {% endfor %}
-            </ul> -->
+        
     </div>
     {% endfor %}
 </div>

@@ -111,4 +111,21 @@ def medication_week(request):
         }
     )
                  
+@login_required
+def medication_take(request, medication_id):
+
+    medication = get_object_or_404(MedicationCard, pk=medication_id)
+
+    if medication.user == request.user:
+        medication.status = not medication.status
+        medication.save()
+        message.success(
+            request, "The status is updated"
+        )
+
+    else:
+        messages.error(
+            request, "You don't have permission to change the status of this medication."
+        )
     
+    return redirect('medication')

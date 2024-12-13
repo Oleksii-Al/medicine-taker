@@ -23,7 +23,7 @@
                 href="{% url 'medication' %}">Medication List</a>
         </li>
         <li>
-            <a href="{{ url 'medication_add' }}">Add Medication</a>
+            <a href="{% url 'medication_add' %}">Add Medication</a>
         </li>
         <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
