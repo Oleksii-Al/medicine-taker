@@ -2,42 +2,71 @@
 {% load static %}
 {% block content %}
 
-<h1>Medication Schedule</h1>
-<button id="toggle-order"></button>
+<div class="container">
+    <h1>Medication Schedule</h1>
+    <button id="toggle-order"></button>
 
-<div class="schedule-container">
-    {% for day, items in schedule.items %}
-    <div class="day-schedule">
-        <table>
-            <tr>
-                <th>{{ day }}</th>
-            </tr>
-            <tr>
-                <th>Medication Name</th>
-                <th>Medication Time</th>
-            </tr>
-
-            {% for item in items %}
-            <tr>
-                <td>{{ item.medication.name }}</td>
-                <td>{{ item.time }}</td>
-                {% if item.status %}
-                <td><a href="{% url 'medication_take' schedule_id=item.id %}">Take</a></td>
-                {% else %}
-                <td><a href="{% url 'medication_take' schedule_id=item.id %}">Untake</a></td>
-                {% endif %}
-                <td><a href="{% url 'medication_edit' medication_id=item.medication.id %}">Edit</a></td>
-                <td><a href="{% url 'medication_delete' medication_id=item.medication.id %}" onclick="return confirm('Are you sure?')">Delete</a></td>
-            <tr>
-
-                {% endfor %}
-
-
-        </table>
-        
+    <div class="accordion schedule-container" id="accordionPanelsStayOpenExample">
+        {% for day, items in schedule.items %}
+        <div class="accordion-item day-schedule">
+            <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse-{{ forloop.counter }}" aria-expanded="true"
+                    aria-controls="collapse-{{ forloop.counter }}">
+                    {{ day }}
+                </button>
+            </h2>
+            <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse show"
+                aria-labelledby="heading-{{ forloop.counter }}">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col">
+                            <p><strong>Medication Name</strong></p>
+                        </div>
+                        <div class="col">
+                            <p><strong>Medication Time</strong></p>
+                        </div>
+                        <div class="col">
+                            <p><strong>Doses</strong></p>
+                        </div>
+                        <div class="col">
+                            <p><strong>Interval</strong></p>
+                        </div>
+                        <div class="col">
+                            <p><strong>Actions</strong></p>
+                        </div>
+                    </div>
+                    {% for item in items %}
+                    <div class="medication row">
+                        <div class="col">
+                            <p class="med-name">{{ item.medication.name }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="med-time">{{ item.time }}</p>
+                        </div>
+                        <div class="col">
+                            <p>{{ item.medication.doses_per_day }}</p>
+                        </div>
+                        <div class="col">
+                            <p>{{ item.medication.interval_between_doses }}</p>
+                        </div>
+                        <div class="col">
+                            {% if item.status %}
+                            <p><a href="{% url 'medication_take' schedule_id=item.id %}">Untake</a></p>
+                            {% else %}
+                            <p><a href="{% url 'medication_take' schedule_id=item.id %}">Take</a></p>
+                            {% endif %}
+                            <p><a href="{% url 'medication_edit' medication_id=item.medication.id %}">Edit</a></p>
+                            <p><a href="{% url 'medication_delete' medication_id=item.medication.id %}"
+                                    onclick="return confirm('Are you sure?')">Delete</a></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
-
