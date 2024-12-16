@@ -43,11 +43,11 @@ class MedicationSchedule(models.Model):
     medication = models.ForeignKey(
         MedicationCard, on_delete=CASCADE, related_name='schedules'
     )
-    date = models.DateField()
+    day_of_week = models.CharField(max_length=9, choices=DAYS)
     time = models.TimeField()
     status = models.BooleanField(default = False) #False - medication isn't taken / True - is taken
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.medication.name} on {self.date} at {self.time}"
+        return f"{self.medication.name} on {self.day_of_week} at {self.time}"

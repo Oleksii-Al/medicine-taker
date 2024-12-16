@@ -26,6 +26,19 @@ def medication_add(request):
             medication = medication_form.save(commit=False)
             medication.user = request.user
             medication.save()
+            
+            for day in medication.days:
+                MedicationSchedule.objects.create(
+                    medication = medication,
+                    day_of_week = day,
+                    time = medication.time,
+                    status = False,
+                )
+
+            messages.success(
+                request, "Medication is added"
+            )
+
             return redirect('medication')
     else:
         medication_form = MedicationCardForm()
@@ -87,6 +100,8 @@ def medication_delete(request, medication_id):
 @login_required
 def medication_week(request):
     medications = MedicationCard.objects.filter(user = request.user)
+    schedules = MedicationSchedule.objects.filter(medication__in=medications)
+
     schedule = {
         "Monday": [],
         "Tuesday": [],
@@ -96,12 +111,11 @@ def medication_week(request):
         "Saturday": [],
         "Sunday": [],
     }
-    for medication in medications:
-        for day in medication.days:
-            schedule[day].append(medication)
+    for schedule_item in schedules:
+        schedule[schedule_item.day_of_week].append(schedule_item)
 
     for day in schedule:
-           schedule[day] = sorted(schedule[day], key=lambda medication: medication.time)
+           schedule[day] = sorted(schedule[day], key=lambda item: item.time)
     
     return render(
         request,
@@ -112,14 +126,14 @@ def medication_week(request):
     )
                  
 @login_required
-def medication_take(request, medication_id):
+def medication_take(request, schedule_id):
 
-    medication = get_object_or_404(MedicationCard, pk=medication_id)
+    schedule = get_object_or_404(MedicationSchedule, pk=schedule_id)
 
-    if medication.user == request.user:
-        medication.status = not medication.status
-        medication.save()
-        message.success(
+    if schedule.medication.user == request.user:
+        schedule.status = not schedule.status
+        schedule.save()
+        messages.success(
             request, "The status is updated"
         )
 

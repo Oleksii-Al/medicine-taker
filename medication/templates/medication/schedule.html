@@ -3,8 +3,9 @@
 {% block content %}
 
 <h1>Medication Schedule</h1>
+
 <div class="schedule-container">
-    {% for day, medications in schedule.items %}
+    {% for day, items in schedule.items %}
     <div class="day-schedule">
         <table>
             <tr>
@@ -15,13 +16,17 @@
                 <th>Medication Time</th>
             </tr>
 
-            {% for medication in medications %}
+            {% for item in items %}
             <tr>
-                <td>{{ medication.name }}</td>
-                <td>{{ medication.time }}</td>
-                <td><a href="#">Take</a></td>
-                <td><a href="{% url 'medication_edit' medication.id %}">Edit</a></td>
-                <td><a href="{% url 'medication_delete' medication.id %}" onclick="return confirm('Are you sure?')">Delete</a></td>
+                <td>{{ item.medication.name }}</td>
+                <td>{{ item.time }}</td>
+                {% if item.status %}
+                <td><a href="{% url 'medication_take' schedule_id=item.id %}">Take</a></td>
+                {% else %}
+                <td><a href="{% url 'medication_take' schedule_id=item.id %}">Untake</a></td>
+                {% endif %}
+                <td><a href="{% url 'medication_edit' medication_id=item.medication.id %}">Edit</a></td>
+                <td><a href="{% url 'medication_delete' medication_id=item.medication.id %}" onclick="return confirm('Are you sure?')">Delete</a></td>
             <tr>
 
                 {% endfor %}
