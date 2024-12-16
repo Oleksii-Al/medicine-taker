@@ -3,6 +3,7 @@
 {% block content %}
 
 <h1>Medication Schedule</h1>
+<button id="toggle-order"></button>
 
 <div class="schedule-container">
     {% for day, items in schedule.items %}
@@ -39,3 +40,4 @@
 </div>
 
 {% endblock %}
+

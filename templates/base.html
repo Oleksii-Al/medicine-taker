@@ -54,11 +54,14 @@
         {% endblock content %}
     </main>
 
+    {% block extras %}
+    <script src="{% static 'js/days_order.js' %}"></script>
+    {% endblock %}
+
     {% block copyright %}
     Made by me
     {% endblock %}
 
-    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
