@@ -20,49 +20,141 @@
             <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse show"
                 aria-labelledby="heading-{{ forloop.counter }}">
                 <div class="accordion-body">
-                    <div class="row header-row">
-                        <div class="col">
-                            <p class="header-col">Medication Name</p>
+                    {% if items %}
+                    <div class="row header-row d-none d-md-flex">
+                        <div class="col-md-2">
+                            <p class="header-col">Name</p>
                         </div>
-                        <div class="col">
-                            <p class="header-col">Medication Time</p>
+                        <div class="col-md-2">
+                            <p class="header-col">Time</p>
                         </div>
-                        <div class="col">
+                        <div class="col-md-2">
                             <p class="header-col">Doses</p>
                         </div>
-                        <div class="col">
+                        <div class="col-md-2">
                             <p class="header-col">Interval</p>
                         </div>
-                        <div class="col">
+                        <div class="col-md-2">
                             <p class="header-col">Actions</p>
                         </div>
                     </div>
                     {% for item in items %}
-                    <div class="medication row">
-                        <div class="col">
+
+                    <div class="medication row d-none d-md-flex">
+                        <div class="col-md-2">
                             <p class="med-name">{{ item.medication.name }}</p>
                         </div>
-                        <div class="col">
+                        <div class="col-md-2">
                             <p class="med-time">{{ item.time }}</p>
                         </div>
-                        <div class="col">
+                        <div class="col-md-2">
                             <p>{{ item.medication.doses_per_day }}</p>
                         </div>
-                        <div class="col">
+                        <div class="col-md-2">
                             <p>{{ item.medication.interval_between_doses|default:"Not specified" }}</p>
                         </div>
                         <div class="col">
-                            {% if item.status %}
-                            <p><a href="{% url 'medication_take' schedule_id=item.id %}" class="btn-action btn-untake">Untake</a></p>
-                            {% else %}
-                            <p><a href="{% url 'medication_take' schedule_id=item.id %}" class="btn-action btn-take">Take</a></p>
-                            {% endif %}
-                            <p><a href="{% url 'medication_edit' medication_id=item.medication.id %}" class="btn-action btn-edit">Edit</a></p>
-                            <p><a href="{% url 'medication_delete' medication_id=item.medication.id %}"
-                                    onclick="return confirm('Are you sure?')" class="btn-action btn-delete">Delete</a></p>
+                            <div class="row">
+                                {% if item.status %}
+                                <div class="col-md-4">
+                                    <p class="d-xl-block d-none"><a
+                                            href="{% url 'medication_take' schedule_id=item.id %}"
+                                            class="btn-action btn-untake"><i class="fas fa-times"></i>Untake</a></p>
+                                    <p class="d-xl-none"><a href="{% url 'medication_take' schedule_id=item.id %}"
+                                            class="btn-action btn-untake">
+                                            <i class="fas fa-times"></i> <!-- Cross icon for "Untake" -->
+                                        </a></p>
+                                </div>
+                                {% else %}
+                                <div class="col-md-4">
+                                    <p class="d-xl-block d-none"><a
+                                            href="{% url 'medication_take' schedule_id=item.id %}"
+                                            class="btn-action btn-take">Take</a></p>
+                                    <p class="d-xl-none"><a href="{% url 'medication_take' schedule_id=item.id %}"
+                                            class="btn-action btn-take">
+                                            <i class="fas fa-check"></i>
+                                        </a></p>
+                                </div>
+                                {% endif %}
+                                <div class="col-md-4">
+                                    <p class="d-xl-block d-none"><a
+                                            href="{% url 'medication_edit' medication_id=item.medication.id %}"
+                                            class="btn-action btn-edit">Edit</a></p>
+                                    <p class="d-xl-none"><a
+                                            href="{% url 'medication_edit' medication_id=item.medication.id %}"
+                                            class="btn-action btn-edit">
+                                            <i class="fas fa-edit"></i> <!-- Edit icon -->
+                                        </a></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="d-xl-block d-none"><a
+                                            href="{% url 'medication_delete' medication_id=item.medication.id %}"
+                                            onclick="return confirm('Are you sure?')"
+                                            class="btn-action btn-delete">Delete</a></p>
+                                    <p class="d-xl-none"><a
+                                            href="{% url 'medication_delete' medication_id=item.medication.id %}"
+                                            onclick="return confirm('Are you sure?')" class="btn-action btn-delete">
+                                            <i class="fas fa-trash"></i> <!-- Trash icon for "Delete" -->
+                                        </a></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Card view for small screens -->
+                    <div class="medication-card card d-block d-md-none mb-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Name: {{ item.medication.name }}</li>
+                            <li class="list-group-item">Time: {{ item.time }}</li>
+                            <li class="list-group-item">Doses: {{ item.medication.doses_per_day }}</li>
+                            <li class="list-group-item">Interval: {{ item.medication.interval_between_doses|default:"Not
+                                specified" }}</li>
+                            <li class="list-group-item">
+                                <div class="col">
+                                    <div class="d-flex justify-content-between">
+                                        {% if item.status %}
+                                        <div class="col-md-4">
+                                            <a
+                                                    href="{% url 'medication_take' schedule_id=item.id %}"
+                                                    class="btn-action btn-untake">
+                                                    <i class="fas fa-times"></i> <!-- Cross icon for "Untake" -->
+                                                </a>
+                                        </div>
+                                        {% else %}
+                                        <div class="col-md-4">
+
+                                            <a
+                                                    href="{% url 'medication_take' schedule_id=item.id %}"
+                                                    class="btn-action btn-take">
+                                                    <i class="fas fa-check"></i>
+                                                </a>
+                                        </div>
+                                        {% endif %}
+                                        <div>
+
+                                            <a
+                                                    href="{% url 'medication_edit' medication_id=item.medication.id %}"
+                                                    class="btn-action btn-edit">
+                                                    <i class="fas fa-edit"></i> <!-- Edit icon -->
+                                                </a>
+                                        </div>
+                                        <div class="col-md-4">
+
+                                        <a href="{% url 'medication_delete' medication_id=item.medication.id %}"
+                                                    onclick="return confirm('Are you sure?')"
+                                                    class="btn-action btn-delete">
+                                                    <i class="fas fa-trash"></i> <!-- Trash icon for "Delete" -->
+                                                </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                     {% endfor %}
+                    {% else %}
+                    <p>No medications scheduled for {{ day }}.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
