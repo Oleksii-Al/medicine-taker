@@ -6,6 +6,12 @@ from .models import MedicationCard, MedicationSchedule, DAYS
 from .forms import MedicationCardForm
 
 # Create your views here.
+def home(request):
+    if request.user.is_authenticated:
+        return render(request, 'medication/schedule.html')
+    else:
+        return render(request, 'medication/home.html')
+
 @login_required
 def medication_list(request):
     medications = MedicationCard.objects.filter(user=request.user)
@@ -109,33 +115,35 @@ def medication_delete(request, medication_id):
         )
         return redirect("medication")
 
-@login_required
 def medication_week(request):
-    medications = MedicationCard.objects.filter(user = request.user)
-    schedules = MedicationSchedule.objects.filter(medication__in=medications)
+    if request.user.is_authenticated:
+        medications = MedicationCard.objects.filter(user = request.user)
+        schedules = MedicationSchedule.objects.filter(medication__in=medications)
 
-    schedule = {
-        "Monday": [],
-        "Tuesday": [],
-        "Wednesday": [],
-        "Thursday": [],
-        "Friday": [],
-        "Saturday": [],
-        "Sunday": [],
-    }
-    for schedule_item in schedules:
-        schedule[schedule_item.day_of_week].append(schedule_item)
-
-    for day in schedule:
-           schedule[day] = sorted(schedule[day], key=lambda item: item.time)
-    
-    return render(
-        request,
-        "medication/schedule.html",
-        {
-            "schedule": schedule,
+        schedule = {
+            "Monday": [],
+            "Tuesday": [],
+            "Wednesday": [],
+            "Thursday": [],
+            "Friday": [],
+            "Saturday": [],
+            "Sunday": [],
         }
-    )
+        for schedule_item in schedules:
+            schedule[schedule_item.day_of_week].append(schedule_item)
+
+        for day in schedule:
+            schedule[day] = sorted(schedule[day], key=lambda item: item.time)
+        
+        return render(
+            request,
+            "medication/schedule.html",
+            {
+                "schedule": schedule,
+            }
+        )
+    else:
+        return render(request, "medication/home.html")
                  
 @login_required
 def medication_take(request, schedule_id):
