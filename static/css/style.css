@@ -235,3 +235,16 @@ form p {
     font-size: large;
 }
 
+.alert.success {
+    background-color: var(--secondary-color);
+    color: #fff;
+    margin: 1em 5em;
+    text-align: center;
+}
+
+.alert.error {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    margin: 1em 5em;
+    text-align: center;
+}

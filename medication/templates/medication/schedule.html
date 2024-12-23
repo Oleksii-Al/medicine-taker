@@ -31,7 +31,7 @@
                             <p class="header-col">Doses</p>
                         </div>
                         <div class="col">
-                            <p class="header-col">Interval</strong></p>
+                            <p class="header-col">Interval</p>
                         </div>
                         <div class="col">
                             <p class="header-col">Actions</p>
@@ -49,7 +49,7 @@
                             <p>{{ item.medication.doses_per_day }}</p>
                         </div>
                         <div class="col">
-                            <p>{{ item.medication.interval_between_doses }}</p>
+                            <p>{{ item.medication.interval_between_doses|default:"Not specified" }}</p>
                         </div>
                         <div class="col">
                             {% if item.status %}

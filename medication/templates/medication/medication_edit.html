@@ -3,10 +3,11 @@
 {% load crispy_forms_tags %}
 
 
-<h1>Add Medication</h1>
+<h1>Edit Medication</h1>
 <form method="POST">
     {% csrf_token %}
     {{medication_form | crispy}}
+    <p>Selected Days: {{ medication_form.days.value }}</p>
     <button type="submit">Update Medication</button>
 </form>
 

@@ -67,8 +67,19 @@ def medication_edit(request, medication_id):
         medication_form = MedicationCardForm(request.POST, instance=medication)
         if medication_form.is_valid():
             medication_form.save()
+
+            medication.schedules.all().delete()
+            for day in medication.days:
+                MedicationSchedule.objects.create(
+                    medication=medication,
+                    day_of_week=day,
+                    time=medication.time,
+                    status=False,
+                )
             messages.success(request, "Medication updated successfully!")
             return redirect("medication")
+        else:
+            messages.error(request, "There was an error updating the medication.")
     else:
         medication_form = MedicationCardForm(instance=medication)
 
@@ -77,6 +88,7 @@ def medication_edit(request, medication_id):
         request,
         "medication/medication_edit.html",
         {
+            "medication": medication,
             "medication_form": medication_form,
         }
     )

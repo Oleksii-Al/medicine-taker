@@ -8,10 +8,7 @@ class MedicationCardForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Enter Medicine name'}),
-            'description': forms.TextInput(
-                attrs={'placeholder': 'Enter Description'}
-            ),
-            'time': forms.DateInput(attrs={'type': 'time',}),
+            'time': forms.TimeInput(attrs={'type': 'time',}),
             'interval_between_doses': forms.NumberInput(attrs={'placeholder': '0',}),
         }
 
