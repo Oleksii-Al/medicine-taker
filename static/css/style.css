@@ -1,0 +1,230 @@
+:root {
+    --primary-color: #fa9581; /* Оранжево-розовый */
+    --secondary-color: #4a6572; /* Темный серо-голубой для лучшего контраста */
+    --background-color: #eaeaea; /* Светло-серый */
+    --dark-color: #333; /* Темный цвет для текста */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--dark-color); /* Основной текст темнее */
+}
+
+.custom-nav {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--secondary-color) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    border: none;
+    background-color: var(--background-color);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: var(--secondary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.medication-schedule {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.med-schedule-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.btn-toggle-order {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-toggle-order:hover {
+    background-color: var(--primary-color);
+}
+
+/* Стили для аккордеона */
+.accordion-item {
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.accordion-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Заголовки столбцов */
+.header-row .header-col {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* Строки с медикаментами */
+.medication {
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 10px 0;
+}
+
+.medication .med-name, .medication .med-time {
+    color: var(--secondary-color);
+}
+
+.medication .btn-action {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.medication .btn-take {
+    background-color: var(--secondary-color);
+}
+
+.medication .btn-untake {
+    background-color: var(--primary-color);
+}
+
+.medication .btn-edit {
+    background-color: #6c757d;
+}
+
+.medication .btn-delete {
+    background-color: #dc3545;
+}
+
+.medication .btn-action:hover {
+    opacity: 0.8;
+}
+
+/* Добавляем тень для текста, чтобы он был более читаемым */
+.medication .med-name,
+.medication .med-time {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-row .header-col,
+.medication .btn-action {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Добавить легкую тень для контраста */
+}
+
+/* Основной контейнер формы */
+form {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Стили для кнопок */
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Эффект при наведении на кнопку */
+button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Стиль для полей формы */
+.form-control {
+    background-color: #fff;
+    border: 1px solid var(--secondary-color);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+/* Эффект при фокусе на полях */
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Стили для сообщений об ошибках */
+.form-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+/* Дополнительные стили для формы */
+button[type="submit"] {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Отступы для инпутов и кнопок */
+input, select, button {
+    margin-bottom: 15px;
+}
+
+/* Отделение формы от других элементов страницы */
+form {
+    margin-top: 20px;
+}

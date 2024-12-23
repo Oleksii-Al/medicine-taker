@@ -2,9 +2,10 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
-    <h1>Medication Schedule</h1>
-    <button id="toggle-order"></button>
+<div class="container medication-schedule">
+    <h1 class="med-schedule-title">Medication Schedule</h1>
+    <span>Schedule order:</span>
+    <button class="btn-toggle-order" id="toggle-order"></button>
 
     <div class="accordion schedule-container" id="accordionPanelsStayOpenExample">
         {% for day, items in schedule.items %}
@@ -19,21 +20,21 @@
             <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse show"
                 aria-labelledby="heading-{{ forloop.counter }}">
                 <div class="accordion-body">
-                    <div class="row">
+                    <div class="row header-row">
                         <div class="col">
-                            <p><strong>Medication Name</strong></p>
+                            <p class="header-col">Medication Name</p>
                         </div>
                         <div class="col">
-                            <p><strong>Medication Time</strong></p>
+                            <p class="header-col">Medication Time</p>
                         </div>
                         <div class="col">
-                            <p><strong>Doses</strong></p>
+                            <p class="header-col">Doses</p>
                         </div>
                         <div class="col">
-                            <p><strong>Interval</strong></p>
+                            <p class="header-col">Interval</strong></p>
                         </div>
                         <div class="col">
-                            <p><strong>Actions</strong></p>
+                            <p class="header-col">Actions</p>
                         </div>
                     </div>
                     {% for item in items %}
@@ -52,13 +53,13 @@
                         </div>
                         <div class="col">
                             {% if item.status %}
-                            <p><a href="{% url 'medication_take' schedule_id=item.id %}">Untake</a></p>
+                            <p><a href="{% url 'medication_take' schedule_id=item.id %}" class="btn-action btn-untake">Untake</a></p>
                             {% else %}
-                            <p><a href="{% url 'medication_take' schedule_id=item.id %}">Take</a></p>
+                            <p><a href="{% url 'medication_take' schedule_id=item.id %}" class="btn-action btn-take">Take</a></p>
                             {% endif %}
-                            <p><a href="{% url 'medication_edit' medication_id=item.medication.id %}">Edit</a></p>
+                            <p><a href="{% url 'medication_edit' medication_id=item.medication.id %}" class="btn-action btn-edit">Edit</a></p>
                             <p><a href="{% url 'medication_delete' medication_id=item.medication.id %}"
-                                    onclick="return confirm('Are you sure?')">Delete</a></p>
+                                    onclick="return confirm('Are you sure?')" class="btn-action btn-delete">Delete</a></p>
                         </div>
                     </div>
                     {% endfor %}

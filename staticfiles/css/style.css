@@ -1,0 +1,346 @@
+:root {
+    --primary-color: #fa9581; /* Оранжево-розовый */
+    --secondary-color: #4a6572; /* Темный серо-голубой для лучшего контраста */
+    --background-color: #eaeaea; /* Светло-серый */
+    --dark-color: #333; /* Темный цвет для текста */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--dark-color); /* Основной текст темнее */
+}
+
+.custom-nav {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--secondary-color) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    border: none;
+    background-color: var(--background-color);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: var(--secondary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.medication-schedule {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.med-schedule-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.btn-toggle-order {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-toggle-order:hover {
+    background-color: var(--primary-color);
+}
+
+/* Стили для аккордеона */
+.accordion-item {
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.accordion-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Заголовки столбцов */
+.header-row .header-col {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* Строки с медикаментами */
+.medication {
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 10px 0;
+}
+
+.medication .med-name, .medication .med-time {
+    color: var(--secondary-color);
+}
+
+.medication .btn-action {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.medication .btn-take {
+    background-color: var(--secondary-color);
+}
+
+.medication .btn-untake {
+    background-color: var(--primary-color);
+}
+
+.medication .btn-edit {
+    background-color: #6c757d;
+}
+
+.medication .btn-delete {
+    background-color: #dc3545;
+}
+
+.medication .btn-action:hover {
+    opacity: 0.8;
+}
+
+/* Добавляем тень для текста, чтобы он был более читаемым */
+.medication .med-name,
+.medication .med-time {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-row .header-col,
+.medication .btn-action {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Добавить легкую тень для контраста */
+}
+
+/* Общие стили для страницы входа */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login-info {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.socialaccount-ballot {
+    margin-bottom: 20px;
+}
+
+.socialaccount-providers {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.socialaccount-providers li {
+    list-style: none;
+}
+
+.login-or {
+    text-align: center;
+    color: var(--secondary-color);
+    margin: 10px 0;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: var(--primary-color);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #d47b67; /* Немного темнее для эффекта наведения */
+}
+
+.login-form input {
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Общие стили для страницы выхода */
+.logout-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.logout-info {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.logout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.logout-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-form button:hover {
+    background-color: #d47b67; /* Немного темнее для эффекта наведения */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Общие стили для страницы регистрации */
+.signup-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.signup-info {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+    background-color: #d47b67; /* Немного темнее для эффекта наведения */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: #d47b67; /* Цвет при наведении на ссылку */
+}
