@@ -6,6 +6,15 @@ class MedicationCardForm(forms.ModelForm):
         model = MedicationCard
         fields = ('name', 'days', 'time', 'doses_per_day', 'interval_between_doses')
 
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Enter Medicine name'}),
+            'description': forms.TextInput(
+                attrs={'placeholder': 'Enter Description'}
+            ),
+            'time': forms.DateInput(attrs={'type': 'time',}),
+            'interval_between_doses': forms.NumberInput(attrs={'placeholder': '0',}),
+        }
+
     days = forms.MultipleChoiceField(
         choices = DAYS,
         widget = forms.CheckboxSelectMultiple,
@@ -26,3 +35,5 @@ class MedicationCardForm(forms.ModelForm):
             cleaned_data["interval_between_doses"] = None
 
         return cleaned_data
+    
+    
