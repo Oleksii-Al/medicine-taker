@@ -2,6 +2,61 @@
 {% load static %}
 {% block content %}
 
-<p>Home page</p>
+<div class="home-container">
+    <!-- Header Section -->
+    <header class="home-header text-center mb-4">
+        <h1 class="home-title">Welcome to Medication Assistant!</h1>
+        <p class="home-subtitle">Managing your health and medications can be a challenge, especially when juggling multiple
+            prescriptions or complex schedules. This platform is designed to simplify your life by providing an
+            intuitive and reliable way to track and manage your medication intake.</p>
+    </header>
+
+    <!-- What is this website for? -->
+    <section class="features-section mb-4">
+        <div class="feature-card">
+            <div class="icon">
+                <i class="fas fa-pills"></i>
+            </div>
+            <h2 class="feature-title">What is this website for?</h2>
+            <p class="feature-description">Our goal is to help you stay on top of your health with a personalized medication schedule that keeps
+                everything in one place. From daily reminders to progress tracking, this tool ensures you never miss a dose.</p>
+        </div>
+    </section>
+
+    <!-- Why use it? -->
+    <section class="features-section mb-4">
+        <div class="feature-card">
+            <div class="icon">
+                <i class="fas fa-list"></i>
+            </div>
+            <h2 class="feature-title">Why use it?</h2>
+            <ul class="feature-description">
+                <li><strong>Stay Organized:</strong> Plan medications for each day of the week in a clear and structured
+                    way.</li>
+                <li><strong>Track Your Health:</strong> Mark doses as taken or not taken to monitor your adherence.</li>
+                <li><strong>Adapt to Your Needs:</strong> Easily add, edit, or remove medications as your treatment changes.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Who is it for? -->
+    <section class="features-section mb-4">
+        <div class="feature-card">
+            <div class="icon">
+                <i class="fas fa-user-friends"></i>
+            </div>
+            <h2 class="feature-title">Who is it for?</h2>
+            <p class="feature-description">Whether you’re managing long-term treatments, caring for a family member, or simply wanting a better way to
+                organize your health, this website is your trusted assistant.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="text-center">
+        <a class="home-cta btn btn-primary btn-lg{% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">
+            <i class="fas fa-arrow-right"></i> Get Started Today
+        </a>
+    </div>
+</div>
 
 {% endblock %}
