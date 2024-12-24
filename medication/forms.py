@@ -6,6 +6,10 @@ class MedicationCardForm(forms.ModelForm):
         model = MedicationCard
         fields = ('name', 'days', 'time', 'doses_per_day', 'interval_between_doses')
 
+        labels = {
+            'interval_between_doses': 'Interval between doses (hours)',
+        }
+
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Enter Medicine name'}),
             'time': forms.TimeInput(attrs={'type': 'time',}),
