@@ -15,6 +15,12 @@ body {
     margin: 0;
 }
 
+.main-content {
+    flex-grow: 1;
+}
+
+/* Navigation styles */
+
 .custom-nav {
     background-color: var(--background-color);
     border-bottom: 1px solid var(--secondary-color);
@@ -47,6 +53,8 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Title */
+
 .medication-schedule {
     background-color: var(--background-color);
     border-radius: 8px;
@@ -59,6 +67,8 @@ body {
     font-size: 2rem;
     margin-bottom: 20px;
 }
+
+/* Sorting button */
 
 .btn-toggle-order {
     background-color: var(--secondary-color);
@@ -73,7 +83,7 @@ body {
     background-color: var(--primary-color);
 }
 
-/* Стили для аккордеона */
+/* Accordeon styles */
 .accordion-item {
     border: 1px solid var(--secondary-color);
     border-radius: 8px;
@@ -91,7 +101,7 @@ body {
     color: white;
 }
 
-/* Заголовки столбцов */
+/* Accordeon body styles */
 .header-row .header-col {
     color: var(--primary-color);
     font-weight: bold;
@@ -99,14 +109,13 @@ body {
     font-size: 1rem;
 }
 
-/* Строки с медикаментами */
 .medication {
     border-bottom: 1px solid var(--secondary-color);
     padding: 10px 0;
 }
 
 .medication .med-name, .medication .med-time {
-    color: var(--secondary-color);
+    color: var(--dark-color);
 }
 
 .medication .btn-action {
@@ -138,28 +147,11 @@ body {
     opacity: 0.8;
 }
 
-/* Добавляем тень для текста, чтобы он был более читаемым */
-.medication .med-name,
-.medication .med-time {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
 .header-row .header-col,
 .medication .btn-action {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Добавить легкую тень для контраста */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
-/* Основной контейнер формы */
-form {
-    background-color: var(--background-color);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    margin: 0 auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Заголовок */
 h1 {
     text-align: center;
     color: var(--primary-color);
@@ -167,24 +159,46 @@ h1 {
     font-size: 2rem;
 }
 
-/* Стили для кнопок */
-button[type="submit"] {
+/* Buttons style */
+button[type="submit"], .home-cta {
     background-color: var(--primary-color);
-    color: white;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-/* Эффект при наведении на кнопку */
-button[type="submit"]:hover {
+button[type="submit"]:hover, .home-cta:hover {
     background-color: var(--secondary-color);
 }
 
-/* Стиль для полей формы */
+input, select, button {
+    margin-bottom: 15px;
+}
+
+/* Form style */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form p {
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .form-control {
     background-color: #fff;
     border: 1px solid var(--secondary-color);
@@ -197,42 +211,15 @@ button[type="submit"]:hover {
     transition: border-color 0.3s ease;
 }
 
-/* Эффект при фокусе на полях */
 .form-control:focus {
     border-color: var(--primary-color);
     outline: none;
 }
 
-/* Стили для сообщений об ошибках */
 .form-error {
     color: #dc3545;
     font-size: 0.875rem;
     margin-top: 5px;
-}
-
-/* Дополнительные стили для формы */
-button[type="submit"] {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Отступы для инпутов и кнопок */
-input, select, button {
-    margin-bottom: 15px;
-}
-
-/* Отделение формы от других элементов страницы */
-form {
-    margin-top: 20px;
-    background-color: #fff;
-    
-}
-
-form p {
-    color: var(--dark-color);
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    text-align: center;
 }
 
 .center-text {
@@ -240,6 +227,7 @@ form p {
     font-size: large;
 }
 
+/* Alert style */
 .alert.success {
     background-color: var(--secondary-color);
     color: #fff;
@@ -254,9 +242,9 @@ form p {
     text-align: center;
 }
 
-/* Стили для домашней страницы */
 
-/* Основной контейнер */
+
+/* Home page */
 .home-container {
     padding: 40px 20px;
     max-width: 1200px;
@@ -265,7 +253,6 @@ form p {
     border-radius: 8px;
 }
 
-/* Заголовок */
 .home-title {
     text-align: center;
     color: var(--primary-color);
@@ -274,7 +261,6 @@ form p {
     font-weight: bold;
 }
 
-/* Подзаголовок */
 .home-subtitle {
     text-align: center;
     color: var(--dark-color);
@@ -283,7 +269,6 @@ form p {
     line-height: 1.6;
 }
 
-/* Секция с функциями */
 .features-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -291,7 +276,6 @@ form p {
     margin-top: 20px;
 }
 
-/* Карточка функции */
 .feature-card {
     background-color: #fff;
     padding: 20px;
@@ -301,14 +285,12 @@ form p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Иконки */
 .feature-card .icon {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 15px;
 }
 
-/* Заголовок функции */
 .feature-title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -316,7 +298,6 @@ form p {
     margin-bottom: 10px;
 }
 
-/* Текст функции */
 .feature-description {
     font-size: 1rem;
     color: var(--dark-color);
@@ -324,41 +305,18 @@ form p {
     list-style-type: none;
 }
 
-/* Эффекты наведения на карточки */
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Кнопка на домашней странице */
-.home-cta {
-    display: block;
-    margin: 30px auto;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-}
 
-/* Эффект наведения на кнопку */
-.home-cta:hover {
-    background-color: var(--secondary-color);
-}
 
+/* Footer */
 .custom-footer {
     height: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--dark-color);
-}
-
-.main-content {
-    flex-grow: 1;
 }
