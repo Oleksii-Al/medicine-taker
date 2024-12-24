@@ -31,6 +31,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-secondary {% if request.path == medication_url %}active{% endif %}" href="{% url 'medication' %}">Medication List</a>
                 </li>
+                <li><a class="nav-link text-secondary {% if request.path == add_url %}active{% endif %}" href="{% url 'medication_add' %}">Add Medication</a></li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
@@ -38,7 +39,6 @@
                         {{ user.username }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end bg-light">
-                        <li><a class="dropdown-item text-primary {% if request.path == add_url %}active{% endif %}" href="{% url 'medication_add' %}">Add Medication</a></li>
                         <li><a class="dropdown-item text-danger {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
                     </ul>
                 </li>
