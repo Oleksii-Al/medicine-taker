@@ -188,11 +188,13 @@
 <script>
     const deleteModal = document.getElementById('deleteModal');
     deleteModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // Кнопка, которая вызвала модальное окно
-        const deleteUrl = button.getAttribute('data-delete-url'); // Ссылка на удаление
+        const button = event.relatedTarget;
+        const deleteUrl = button.getAttribute('data-delete-url');
         const confirmDeleteButton = document.getElementById('confirmDeleteButton');
-        confirmDeleteButton.setAttribute('href', deleteUrl); // Устанавливаем ссылку на кнопку подтверждения
+        confirmDeleteButton.setAttribute('href', deleteUrl);
     });
 </script>
+
+<script src="{% static 'js/days_order.js' %}"></script>
 
 {% endblock %}
