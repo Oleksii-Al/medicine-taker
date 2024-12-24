@@ -21,15 +21,12 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light custom-nav">
     <div class="container-fluid">
-        <a class="navbar-brand text-primary" href="#">Medication Assistant</a>
+        <a class="navbar-brand text-primary" href="{% url 'medication' %}">Medication Assistant</a>
         <button class="navbar-toggler text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" aria-current="page" href="#">Home</a>
-                </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link text-secondary {% if request.path == medication_url %}active{% endif %}" href="{% url 'medication' %}">Medication List</a>
@@ -48,6 +45,9 @@
             </ul>
             <ul class="navbar-nav">
                 {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-secondary {% if request.path == medication_url %}active{% endif %}" aria-current="page" href="{% url 'medication' %}">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link text-secondary {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
                 </li>
