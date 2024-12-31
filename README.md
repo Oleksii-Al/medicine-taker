@@ -184,3 +184,5 @@ By leveraging Agile principles and utilizing the Kanban board effectively, the d
 ## Logout Page:
   - Logout functionality allows users to sign out securely.
   - After successful logout, users are redirected to the Home page.
+
+### Responsive Design:
