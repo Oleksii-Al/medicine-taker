@@ -386,4 +386,4 @@ Creating a clone enables you to make a local copy of the repository. Follow thes
 - GitHub user **katiejanecoughlan** and **jack-brosnan** for sharing a best practice README structure
 - Course Facilitator **David Calikes** for his unwaving support and guidance during the process 
 - Tutor **Kevin Loughrey** for his helpful SME sessions and constant support
-- ChatGpt for helping in debugging and understanding hard topics
+- ChatGpt for helping in debugging and understanding hard topics.
