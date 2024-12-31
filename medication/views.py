@@ -30,10 +30,10 @@ def medication_add(request):
             medication.save()
             for day in medication.days:
                 MedicationSchedule.objects.create(
-                    medication = medication,
-                    day_of_week = day,
-                    time = medication.time,
-                    status = False,
+                    medication=medication,
+                    day_of_week=day,
+                    time=medication.time,
+                    status=False,
                 )
 
             messages.success(
@@ -119,7 +119,7 @@ def medication_week(request):
     Displays the weekly schedule of medications sorted by time.
     """
     if request.user.is_authenticated:
-        medications = MedicationCard.objects.filter(user = request.user)
+        medications = MedicationCard.objects.filter(user=request.user)
         schedules = MedicationSchedule.objects.filter(medication__in=medications)
 
         schedule = {
@@ -137,7 +137,7 @@ def medication_week(request):
 
         for day in schedule:
             schedule[day] = sorted(schedule[day], key=lambda item: item.time)
-        
+
         return render(
             request,
             "medication/schedule.html",
@@ -147,8 +147,8 @@ def medication_week(request):
         )
     else:
         return render(request, "medication/home.html")
- 
- 
+
+
 @login_required
 def medication_take(request, schedule_id):
     """
@@ -167,5 +167,5 @@ def medication_take(request, schedule_id):
         messages.error(
             request, "You don't have permission to change the status of this medication."
         )
-    
+
     return redirect('medication')
