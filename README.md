@@ -225,3 +225,71 @@ The app was tested across multiple devices (desktop, tablet, mobile) using Chrom
 
 | ![Add Medication Page Desktop](static/images/readme/add_d.jpg) | ![Add Medication Page Mobile](static/images/readme/add_m.jpg)
 | ![Edit Medication Page Desktop](static/images/readme/edit_d.jpg) | ![Edit Medication Page Mobile](static/images/readme/edit_m.jpg)
+
+## Testing 
+
+### Manual Testing Results
+
+### HOME PAGE
+
+| Test                                             | Result |
+|--------------------------------------------------|--------|
+| Home page is displayed for unauthenticated user  | Pass |
+| Home page isn't displayed for authenticated user | Pass |
+| Call to action button redirects to Register page | Pass |
+| All general information are displayed            | Pass |
+
+### MEDICATION LIST PAGE
+
+| Test                                             | Result |
+|--------------------------------------------------|--------|
+| List page isn't shown for unauthenticated user   | Pass |
+| List page is displayed for authenticated user    | Pass |
+| Days are displayed                               | Pass |
+| Medication cards are displayed for correct days  | Pass |
+| Day can be expanded/collapsed                    | Pass |
+| Days can be reversed                             | Pass |
+| Action buttons are displayed for each medication | Pass |
+
+### FOOTER/NAV BAR
+
+| Test                                    | Result |
+|-----------------------------------------|--------|
+| Navigation links functionality          | Pass |
+| Footer is displayed                     | Pass |
+
+### ADD MEDICATION PAGE
+
+| Test                                    | Result |
+|-----------------------------------------|--------|
+| Access requires login                   | Pass   |
+| Add form functionality                  | Pass   |
+| Merdication creation functionality      | Pass   |
+| Redirect after creation                 | Pass   |
+
+### LOGIN PAGE
+
+| Test                                   | Result |
+|----------------------------------------|--------|
+| Secure signup functionality            | Pass   |
+| Redirect after successful login        | Pass   |
+
+### REGISTRATION PAGE
+
+| Test                                   | Result |
+|----------------------------------------|--------|
+| Secure login functionality             | Pass   |
+| Redirect after successful registration | Pass   |
+
+### LOGOUT PAGE
+
+| Test                                   | Result |
+|----------------------------------------|--------|
+| Logout functionality                   | Pass   |
+| Redirect after successful logout       | Pass   |
+
+### Validation
+
+- I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors (extra tags and correcting how width is set in an img tag). However there are some error messages remaning which are due to the content being created using Django Summernote editor in the admin panel.
+
+- I used the W3 CSS Validator to check my CSS script by Direct Input. I found no errors! There are 5 warnigns which are just flagging vendor extensions.
