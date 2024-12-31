@@ -320,4 +320,5 @@ form p {
     align-items: center;
     color: var(--dark-color);
     font-weight: 700;
+    font-size: large;
 }
