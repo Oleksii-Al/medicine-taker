@@ -6,8 +6,8 @@
     <h1 class="med-schedule-title">Medication Schedule</h1>
     <span>Schedule order:</span>
     <button class="btn-toggle-order" id="toggle-order"></button>
-
     <div class="accordion schedule-container" id="accordionPanelsStayOpenExample">
+        <!-- Showing the medication cards for medium screen and above -->
         {% for day, items in schedule.items %}
         <div class="accordion-item day-schedule">
             <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
@@ -62,7 +62,7 @@
                                             class="btn-action btn-untake"><i class="fas fa-times"></i>Untake</a></p>
                                     <p class="d-xl-none"><a href="{% url 'medication_take' schedule_id=item.id %}"
                                             class="btn-action btn-untake">
-                                            <i class="fas fa-times"></i> <!-- Cross icon for "Untake" -->
+                                            <i class="fas fa-times"></i>
                                         </a></p>
                                 </div>
                                 {% else %}
@@ -83,7 +83,7 @@
                                     <p class="d-xl-none"><a
                                             href="{% url 'medication_edit' medication_id=item.medication.id %}"
                                             class="btn-action btn-edit">
-                                            <i class="fas fa-edit"></i> <!-- Edit icon -->
+                                            <i class="fas fa-edit"></i>
                                         </a></p>
                                 </div>
                                 <div class="col-md-4">
@@ -97,7 +97,7 @@
                                         data-bs-target="#deleteModal"
                                         data-delete-url="{% url 'medication_delete' medication_id=item.medication.id %}"
                                         class="btn-action btn-delete">
-                                            <i class="fas fa-trash"></i> <!-- Trash icon for "Delete" -->
+                                            <i class="fas fa-trash"></i>
                                         </a></p>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                             <a
                                                     href="{% url 'medication_take' schedule_id=item.id %}"
                                                     class="btn-action btn-untake">
-                                                    <i class="fas fa-times"></i> <!-- Cross icon for "Untake" -->
+                                                    <i class="fas fa-times"></i> 
                                                 </a>
                                         </div>
                                         {% else %}
@@ -137,7 +137,7 @@
                                             <a
                                                     href="{% url 'medication_edit' medication_id=item.medication.id %}"
                                                     class="btn-action btn-edit">
-                                                    <i class="fas fa-edit"></i> <!-- Edit icon -->
+                                                    <i class="fas fa-edit"></i>
                                                 </a>
                                         </div>
                                         <div class="col-md-4">
@@ -147,7 +147,7 @@
                                             data-bs-target="#deleteModal"
                                             data-delete-url="{% url 'medication_delete' medication_id=item.medication.id %}"
                                             class="btn-action btn-delete">
-                                                    <i class="fas fa-trash"></i> <!-- Trash icon for "Delete" -->
+                                                    <i class="fas fa-trash"></i>
                                                 </a>
                                         </div>
                                     </div>
@@ -185,6 +185,7 @@
     </div>
 </div>
 
+<!-- Delete medication by Modal -->
 <script>
     const deleteModal = document.getElementById('deleteModal');
     deleteModal.addEventListener('show.bs.modal', function (event) {

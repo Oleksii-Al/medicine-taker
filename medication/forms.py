@@ -2,7 +2,13 @@ from django import forms
 from .models import MedicationCard, DAYS
 
 class MedicationCardForm(forms.ModelForm):
+    """
+    Form for adding or editing the medication
+    """
     class Meta:
+        """
+        **Model**: :model:`MedicationCard`
+        """
         model = MedicationCard
         fields = ('name', 'days', 'time', 'doses_per_day', 'interval_between_doses')
 
@@ -23,6 +29,10 @@ class MedicationCardForm(forms.ModelForm):
     )
 
     def clean(self):
+        """
+        Validates and cleans the form data for the MedicationCard model.
+
+        """
         cleaned_data = super().clean()
         doses_per_day = cleaned_data.get("doses_per_day")
         interval_between_doses = cleaned_data.get("interval_between_doses")

@@ -4,6 +4,7 @@
 
 
 <h1>Edit Medication</h1>
+<!-- Form for editing medication -->
 <form method="POST">
     {% csrf_token %}
     {{medication_form | crispy}}

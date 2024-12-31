@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="home-container">
-    <!-- Header Section -->
+    <!-- Header section -->
     <header class="home-header text-center mb-4">
         <h1 class="home-title">Welcome to Medication Assistant!</h1>
         <p class="home-subtitle">Managing your health and medications can be a challenge, especially when juggling multiple
@@ -11,7 +11,7 @@
             intuitive and reliable way to track and manage your medication intake.</p>
     </header>
 
-    <!-- What is this website for? -->
+    <!-- About section -->
     <section class="features-section mb-4">
         <div class="feature-card">
             <div class="icon">
@@ -23,7 +23,7 @@
         </div>
     </section>
 
-    <!-- Why use it? -->
+
     <section class="features-section mb-4">
         <div class="feature-card">
             <div class="icon">
@@ -39,7 +39,7 @@
         </div>
     </section>
 
-    <!-- Who is it for? -->
+
     <section class="features-section mb-4">
         <div class="feature-card">
             <div class="icon">
@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- Call to action -->
     <div class="text-center">
         <a class="home-cta btn btn-primary btn-lg{% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">
             <i class="fas fa-arrow-right"></i> Get Started Today

@@ -7,25 +7,19 @@ from .forms import MedicationCardForm
 
 # Create your views here.
 def home(request):
+    """
+    Renders the home page or schedule page based on user authentication.
+    """
     if request.user.is_authenticated:
         return render(request, 'medication/schedule.html')
     else:
         return render(request, 'medication/home.html')
 
 @login_required
-def medication_list(request):
-    medications = MedicationCard.objects.filter(user=request.user)
-    return render(
-        request,
-        "medication/medication_list.html",
-        {
-            "medications": medications,
-        },
-    )
-
-@login_required
 def medication_add(request):
-
+    """
+    Allows the user to add a new medication and its schedule.
+    """
     if request.method == "POST":
         medication_form = MedicationCardForm(request.POST)
         if medication_form.is_valid():
@@ -57,10 +51,11 @@ def medication_add(request):
         }
         )
 
-
 @login_required
 def medication_edit(request, medication_id):
-
+    """
+    Allows the user to edit an existing medication and its schedule.
+    """
     medication = get_object_or_404(MedicationCard, pk=medication_id)
 
     if medication.user != request.user:
@@ -73,7 +68,6 @@ def medication_edit(request, medication_id):
         medication_form = MedicationCardForm(request.POST, instance=medication)
         if medication_form.is_valid():
             medication_form.save()
-
             medication.schedules.all().delete()
             for day in medication.days:
                 MedicationSchedule.objects.create(
@@ -89,7 +83,6 @@ def medication_edit(request, medication_id):
     else:
         medication_form = MedicationCardForm(instance=medication)
 
-
     return render(
         request,
         "medication/medication_edit.html",
@@ -101,7 +94,9 @@ def medication_edit(request, medication_id):
 
 @login_required
 def medication_delete(request, medication_id):
-
+    """
+    Deletes a medication if the logged-in user is authorized.
+    """
     medication = get_object_or_404(MedicationCard, pk=medication_id)
 
     if medication.user == request.user:
@@ -116,6 +111,9 @@ def medication_delete(request, medication_id):
         return redirect("medication")
 
 def medication_week(request):
+    """
+    Displays the weekly schedule of medications sorted by time.
+    """
     if request.user.is_authenticated:
         medications = MedicationCard.objects.filter(user = request.user)
         schedules = MedicationSchedule.objects.filter(medication__in=medications)
@@ -129,6 +127,7 @@ def medication_week(request):
             "Saturday": [],
             "Sunday": [],
         }
+
         for schedule_item in schedules:
             schedule[schedule_item.day_of_week].append(schedule_item)
 
@@ -147,7 +146,9 @@ def medication_week(request):
                  
 @login_required
 def medication_take(request, schedule_id):
-
+    """
+    Toggles the status of a specific medication schedule.
+    """
     schedule = get_object_or_404(MedicationSchedule, pk=schedule_id)
 
     if schedule.medication.user == request.user:

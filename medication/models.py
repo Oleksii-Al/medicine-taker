@@ -17,6 +17,9 @@ DAYS = (
     )
 
 class MedicationCard(models.Model):
+    """
+    Represents the medication card related to a user, storing metadata
+    """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="medications"
     )
@@ -31,6 +34,9 @@ class MedicationCard(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
 
     class Meta:
+        """
+        String representation of the medication card.
+        """
         constraints = [
         models.UniqueConstraint(fields=['user', 'name'], name='unique_medication_for_user')
         ]
@@ -40,6 +46,9 @@ class MedicationCard(models.Model):
         return f"{self.name} (ID:{self.id})"
 
 class MedicationSchedule(models.Model):
+    """
+    Represents a specific schedule for a medication.
+    """
     medication = models.ForeignKey(
         MedicationCard, on_delete=CASCADE, related_name='schedules'
     )
@@ -50,4 +59,7 @@ class MedicationSchedule(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
+        """
+        String representation of the medication schedule.
+        """
         return f"{self.medication.name} on {self.day_of_week} at {self.time}"
