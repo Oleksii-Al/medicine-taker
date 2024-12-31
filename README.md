@@ -4,7 +4,7 @@ Medication Assistant is a user-friendly web application designed to help users t
 
 The responsive website allows registered users to add medication and create medication schedule. Users who are not registered are free to see the Home page. To make it easy to find right day in the schedule, users can reverse medication schedule and collapse unwanted days.
 
-# **[Link to Live Site](https://dividewise-a9f60e19a4b9.herokuapp.com/)**  
+# **[Link to Live Site](https://medicine-taker-993fd18628d0.herokuapp.com/)**  
 
 *This project was built as part of a full-stack development portfolio.*
 
@@ -33,7 +33,7 @@ The responsive website allows registered users to add medication and create medi
 
 I used smartdraw.com to create my database entity relationship diagrams. See diagram and supporting text below.
 
-![Database Entity Relationship Medication Assistant Diagram](static/images/erd.jpg)
+![Database Entity Relationship Medication Assistant Diagram](static/images/readme/erd.jpg)
 
 ## UX Design
 
@@ -46,36 +46,60 @@ Medication Assistant is aimed at individuals who need to manage their medication
 ### Goal
 Medication Assistant helps users stay on top of their medication by offering a customizable platform to track doses, times, and status (taken or not taken). The goal is to provide a simple yet effective tool that promotes organization, adherence to prescribed schedules, and peace of mind for users managing their health.
 
-
 ## Wireframes
 
 The following wireframes illustrate the design and functionality envisioned for key pages and views in the application. Each layout ensures a responsive and user-friendly experience across various devices, including mobile.
 
-### Index Page (Desktop and Mobile)
+### Home Page
 
-The index page serves as the main dashboard for users, displaying a list of their created spaces. It includes clear navigation options and responsive design to ensure seamless accessibility on smaller screens.
+The home page serves as the about page where user can find the purpose of the site and the implemented features. It includes clear description of the site and call to action button that redirects to Register page.
 
-![Index Page Desktop Placeholder](static/images/readme/dividewise_wireframe-index.png)
-
----
-
-### View Space (Desktop and Mobile)
-
-The view space page provides detailed information about a specific space, including the associated expense lines and contributors. It ensures clear and organized presentation of data.
-
-![View Space Mobile Placeholder](static/images/readme/dividewise_wireframe-viewspace.png)
+![Home Page Placeholder](static/images/readme/home.jpg)
 
 ---
 
-### Forms and Confirmation Messages
+### Medication List
 
-The wireframes for the forms include layouts for creating or editing spaces, expenses, and contributors. These forms prioritize simplicity and clarity for user input.
+The Medication List page provides schedule for taking medication depending on the detail that users provide. It ensures clear and organized presentation of data.
+
+![Medication List Placeholder](static/images/readme/schedule.jpg)
+
+---
+
+### Forms
+
+The wireframes for the forms include layouts for creating or editing medications. These forms prioritize simplicity and clarity for user input.
 
 A confirmation message appears on the index page after actions like adding or editing spaces. This feedback ensures users are informed about the success of their actions.
 
-![Confirmation Message Placeholder](static/images/readme/dividewise_wireframe-forms.png)
+![Add Medication Form Placeholder](static/images/readme/add.jpg)
 
 
 ---
 
-## **Agile Development**
+# **Agile Development**
+
+For the development of Medication Assistant, I adopted an Agile methodology to ensure iterative and efficient progress throughout the project lifecycle. Central to this approach was the utilization of a Kanban board hosted on GitHub Projects. You can view the project board [here](https://github.com/users/Oleksii-Al/projects/4/views/1).
+
+## Kanban Board Overview
+
+The Kanban board served as a visual representation of the project's progress and allowed for effective task management. It consisted of the following sections:
+
+- **Backlog:** This section contained all the tasks and user stories that were yet to be prioritized for implementation.
+- **Todo:** Tasks and user stories ready for development were moved to this column.
+- **In Progress:** Work in progress was tracked here, indicating tasks actively being worked on.
+- **Testing:** Upon completion, tasks were moved here for testing before being marked as done.
+- **Done:** Tasks that were completed successfully were moved to this column.
+
+### User Stories Integration
+
+User stories played a pivotal role in shaping the development process, ensuring that features were aligned with user needs. These user stories were mapped onto the Kanban board, guiding the prioritization and implementation of tasks. 
+
+### Task Management
+
+In addition to tracking user stories, the Kanban board served as a comprehensive task list. I utilized it to break down user stories into smaller, actionable tasks, ensuring clear and manageable objectives for development. This granular approach facilitated efficient progress tracking and enhanced team collaboration.
+
+By leveraging Agile principles and utilizing the Kanban board effectively, the development of Sojourn Scribbles remained focused, adaptable, and responsive to evolving requirements, resulting in a more robust and user-centric Django blog application.
+
+
+## User Stories Overview
