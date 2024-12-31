@@ -5,14 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
         week_order.innerText = "Monday-Sunday";
         
         week_order.addEventListener("click", function() {
+            // Reverse the days in the Scheduleby clicking on the button
             const scheduleContainer = document.querySelector(".schedule-container");
             const days = Array.from(scheduleContainer.getElementsByClassName("day-schedule"));
 
-            // Переворачиваем порядок дней
             days.reverse();
             days.forEach(day => scheduleContainer.appendChild(day));
 
-            // Меняем текст кнопки в зависимости от текущего состояния
             if (week_order.innerText === "Monday-Sunday") {
                 week_order.innerText = "Sunday-Monday";
             } else {
