@@ -319,4 +319,5 @@ form p {
     justify-content: center;
     align-items: center;
     color: var(--dark-color);
+    font-weight: 700;
 }
