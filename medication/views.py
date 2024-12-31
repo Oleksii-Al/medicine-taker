@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import MedicationCard, MedicationSchedule, DAYS
 from .forms import MedicationCardForm
 
+
 # Create your views here.
 def home(request):
     """
@@ -14,6 +15,7 @@ def home(request):
         return render(request, 'medication/schedule.html')
     else:
         return render(request, 'medication/home.html')
+
 
 @login_required
 def medication_add(request):
@@ -26,7 +28,6 @@ def medication_add(request):
             medication = medication_form.save(commit=False)
             medication.user = request.user
             medication.save()
-            
             for day in medication.days:
                 MedicationSchedule.objects.create(
                     medication = medication,
@@ -50,6 +51,7 @@ def medication_add(request):
             "medication_form": medication_form,
         }
         )
+
 
 @login_required
 def medication_edit(request, medication_id):
@@ -92,6 +94,7 @@ def medication_edit(request, medication_id):
         }
     )
 
+
 @login_required
 def medication_delete(request, medication_id):
     """
@@ -109,6 +112,7 @@ def medication_delete(request, medication_id):
             request, "You don't have permission to delete this medication."
         )
         return redirect("medication")
+
 
 def medication_week(request):
     """
@@ -143,7 +147,8 @@ def medication_week(request):
         )
     else:
         return render(request, "medication/home.html")
-                 
+ 
+ 
 @login_required
 def medication_take(request, schedule_id):
     """

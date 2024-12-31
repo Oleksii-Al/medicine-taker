@@ -290,6 +290,6 @@ The app was tested across multiple devices (desktop, tablet, mobile) using Chrom
 
 ### Validation
 
-- I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors (extra tags and correcting how width is set in an img tag). However there are some error messages remaning which are due to the content being created using Django Summernote editor in the admin panel.
+- I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. The result is following: "Document checking completed. No errors or warnings to show.".
 
-- I used the W3 CSS Validator to check my CSS script by Direct Input. I found no errors! There are 5 warnigns which are just flagging vendor extensions.
+- I used the W3 CSS Validator to check my CSS script by Direct Input. The result is following: "Congratulations! No Error Found."
