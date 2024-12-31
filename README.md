@@ -99,7 +99,88 @@ User stories played a pivotal role in shaping the development process, ensuring 
 
 In addition to tracking user stories, the Kanban board served as a comprehensive task list. I utilized it to break down user stories into smaller, actionable tasks, ensuring clear and manageable objectives for development. This granular approach facilitated efficient progress tracking and enhanced team collaboration.
 
-By leveraging Agile principles and utilizing the Kanban board effectively, the development of Sojourn Scribbles remained focused, adaptable, and responsive to evolving requirements, resulting in a more robust and user-centric Django blog application.
+By leveraging Agile principles and utilizing the Kanban board effectively, the development of Medication Assistant remained focused, adaptable, and responsive to evolving requirements, resulting in a more robust and user-centric Django blog application.
 
 
 ## User Stories Overview
+
+1. **Title:** Registration
+   - As a user, I want to register an account so that I can securely save and access my medication schedules.
+
+2. **Title:** Login
+   - As a user, I want to log in to my account so that I can access my personalized medication data.
+
+3. **Title:** Logout
+   - As a user, I want to log out of my account so that my data remains secure when I’m done using the site.
+
+4. **Title:** Add Medication
+   - As a user, I want to easily create a new medication card so that I can track my medication schedule efficiently.
+
+5. **Title:** Take/Untake medication
+   - As a user, I want to mark medication as taken/untaken so that I can manage my daily doses efficiently.
+
+6. **Title:** Edit medication
+   - As a user, I want to edit medication cards so that I can keep my medication schedule up to date.
+
+7. **Title:** Delete medication
+   - As a user, I want to delete medication cards so that I can keep my medication schedule up to date.
+
+8. **Title:** Medication List
+   - As a user, I want to see my medication cards displayed by days of the week (Monday to Sunday) so that I can easily navigate my medication schedule for the entire week.
+
+9. **Title:** Revers days order
+   - As a user, I want to reverse the week so that I can quickly find the information I need.
+
+10. **Title:** Collapsing/expanding the medication day
+   - As a user, I want to collapse the days of the week so that I can focus on specific days or manage my schedule with more space.
+
+11. **Title:** Home page for unauthenticated users
+   - As a user, I want to see a homepage with general information about the site so that I understand its features and how to use them.
+
+12. **Title:** Navigation
+   - As a user, I want to easily navigate through the site so that I can quickly access all the features and information I need.
+
+13. **Title:** Alert messages
+   - As a user, I want to receive feedback through alert messages so that I know when my actions are successful or if there are any issues.
+
+# Features Implemented
+
+## Home page:
+  - General information is displayed
+  - Call to action button is displayed and redirects to Register page
+  - Register button is displayed
+  - Login button is displayed
+
+## Medication List page:
+  - The days of the week are rendered
+  - Correct medication is displayed in each day
+  - Order button can reverse the days
+  - Each day can be collapsed/expanded
+
+## Actions:
+  - Take button is displayed next to every medication
+  - Edit button is displayed next to every medication
+  - Delete button is displayed next to every medication
+  - Each button has a correct link
+  - ALert message is displayed after every action with success or error result
+
+## Delete modal:
+  - Delete button call the Delete modal
+  - User need to confirm deletion in the modal
+
+## Add Medication form
+   - Crispy form is rendered
+   - Necessary fields is displayed
+   - Filled fields allow medication to be correctly displayed on the Medication List 
+
+## Login Page:
+  - Secure signup functionality allows users to register securely.
+  - Successful login redirects users to the Medication List page.
+
+## Registration Page:
+  - Secure login functionality allows users to log in securely.
+  - Successful registration redirects users to the Medication List page.
+
+## Logout Page:
+  - Logout functionality allows users to sign out securely.
+  - After successful logout, users are redirected to the Home page.
