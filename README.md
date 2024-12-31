@@ -370,3 +370,20 @@ Creating a clone enables you to make a local copy of the repository. Follow thes
 - Select the "HTTPS" option under the "Local" tab and copy the URL.
 - Open your terminal and change the directory to your desired location.
 - Use `git clone` followed by the copied repository URL.
+
+### **Resources**
+
+- [Code Institute Full Stack Development course materials](https://codeinstitute.net/) 
+- [Django docs](https://www.djangoproject.com/)
+- [Crispy forms docs](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [Cloudinary docs](https://cloudinary.com/documentation/programmable_media_overview)
+- [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Code Institude Slack](https://slack.com/)
+- [ChatGPT](https://chatgpt.com/)
+
+# Credits and Acknowledgements
+- **Code Institute** course content for providing the knowledge and guidance to build the project
+- GitHub user **katiejanecoughlan** and **jack-brosnan** for sharing a best practice README structure
+- Course Facilitator **David Calikes** for his unwaving support and guidance during the process 
+- Tutor **Kevin Loughrey** for his helpful SME sessions and constant support
+- ChatGpt for helping in debugging and understanding hard topics
