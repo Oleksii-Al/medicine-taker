@@ -124,7 +124,6 @@
                                         </div>
                                         {% else %}
                                         <div class="col-md-4">
-
                                             <a
                                                     href="{% url 'medication_take' schedule_id=item.id %}"
                                                     class="btn-action btn-take">
@@ -133,7 +132,6 @@
                                         </div>
                                         {% endif %}
                                         <div>
-
                                             <a
                                                     href="{% url 'medication_edit' medication_id=item.medication.id %}"
                                                     class="btn-action btn-edit">
@@ -141,7 +139,6 @@
                                                 </a>
                                         </div>
                                         <div class="col-md-4">
-
                                             <a href="#"
                                             data-bs-toggle="modal"
                                             data-bs-target="#deleteModal"

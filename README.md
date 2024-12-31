@@ -211,106 +211,17 @@ By leveraging Agile principles and utilizing the Kanban board effectively, the d
 
 ## Responsiveness
 
-I used the dev tools on chrome to test the website for responsiveness. I captured screenshots to demonstrate responsive design across mobile, tablet and laptop based on the size configurations preset in dev tools.  
-Some particular features to note:
--- Navbar collapses to a burger bar on smaller screen sizes
--- Medical card is displayed as 
--- The smaller the screen the less blog post cards visible on the home page
+The app was tested across multiple devices (desktop, tablet, mobile) using Chrome DevTools.
 
-### The Profile Page
+### The Home page
 
-**Laptop**
-![Screenshot of profile page view on laptop](/static/images/readme/lappro.png)
+| ![Home Page Desktop](static/images/readme/home_d.jpg) | ![Home Page Mobile](static/images/readme/home_m.jpg)
 
-**Tablet**
-![Screenshot of profile page view on tablet](/static/images/readme/tabpro.png)
+### The Medication List page
 
-**Mobile**
-![Screenshot of profile page view on mobile](/static/images/readme/mobpro.png)
+| ![Medication List Page Desktop](static/images/readme/sch_desk.jpg) | ![Medication List Page Mobile](static/images/readme/sch_mob.jpg)
 
-### Other Examples
+### The Add/Edit Medication page
 
-**Laptop**
-![Screenshot of about page view on laptop](/static/images/readme/lapabo.png)
-
-**Tablet**
-![Screenshot of a post view on tablet](/static/images/readme/tabpos.png)
-
-**Mobile**
-![Screenshot of the home page view on mobile](/static/images/readme/mobhom.png)
-
-## Testing and Validation
-- I used the [W3 HTML Validator](https://validator.w3.org/#validate_by_input+with_options) to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors (extra </div> tags and correcting how width is set in an img tag). *However* there are some error messages remaning which are due to the content being created using Django Summernote editor in the admin panel.  
-  
-- I used the [W3 CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) to check my CSS script by Direct Input. I found no errors! There are 5 warnigns which are just flagging vendor extensions.
-
-![CSS validation results](/static/images/readme/css.png)  
-  
-- I used the [CI Python Linter](https://pep8ci.herokuapp.com/) to check all my python scripts. I found a few small errors like the below - mostly lines were too long or there was a missing blank space line. I have left some of the error messages as they are related to a too long line at the result of a comment.
-
-![Python Linter Result](/static/images/readme/linter.png)
-
-- I also used the Django automated testing within my Gitpod workspace. 
-
-### Manual Testing Results
-
-### HOME PAGE
-
-| Test                                     | Result |
-|-----------------------------------------|--------|
-| Blog posts displayed as cards           | Pass   |
-| Filters (user and country) functionality| Pass   |
-| Ability to click on a blog card         | Pass   |
-| Commenting functionality                | Pass   |
-| Edit and delete comment functionality   | Pass   |
-| User must be logged in to comment/edit/delete | Pass |
-| User must be logged in to delete blog post  | Pass |
-| User cannot delete/edit others' comments | Pass |
-| Comments require admin approval         | Pass   |
-| Prevention of deleting other users' posts  | Pass   |
-| Prevention of posting as other users        | Pass   |
-
-### ABOUT PAGE
-
-| Test                                     | Result |
-|-----------------------------------------|--------|
-| Overview of Sojourn Scribbles           | Pass   |
-| Feedback form functionality             | Pass   |
-| Accessible without login                | Pass   |
-
-### FOOTER/NAV BAR
-
-| Test                                     | Result |
-|-----------------------------------------|--------|
-| Navigation links functionality          | Pass   |
-| Social media links functionality        | Pass   |
-
-### PROFILE PAGE
-
-| Test                                     | Result |
-|-----------------------------------------|--------|
-| Access requires login                   | Pass   |
-| Edit profile form functionality        | Pass   |
-| Post creation functionality             | Pass   |
-| Redirect after post submission          | Pass   |
-
-### LOGIN PAGE
-
-| Test                                    | Result |
-|----------------------------------------|--------|
-| Secure signup functionality            | Pass   |
-| Redirect after successful login        | Pass   |
-
-### REGISTRATION PAGE
-
-| Test                                    | Result |
-|----------------------------------------|--------|
-| Secure login functionality             | Pass   |
-| Redirect after successful registration | Pass   |
-
-### LOGOUT PAGE
-
-| Test                                    | Result |
-|----------------------------------------|--------|
-| Logout functionality                   | Pass   |
-| Redirect after successful logout       | Pass   |
+| ![Add Medication Page Desktop](static/images/readme/add_d.jpg) | ![Add Medication Page Mobile](static/images/readme/add_m.jpg)
+| ![Edit Medication Page Desktop](static/images/readme/edit_d.jpg) | ![Edit Medication Page Mobile](static/images/readme/edit_m.jpg)
