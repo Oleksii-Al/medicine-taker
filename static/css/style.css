@@ -1,13 +1,13 @@
 :root {
-    --primary-color: #fa9581; /* Оранжево-розовый */
-    --secondary-color: #4a6572; /* Темный серо-голубой для лучшего контраста */
-    --background-color: #eaeaea; /* Светло-серый */
-    --dark-color: #333; /* Темный цвет для текста */
+    --primary-color: #f87c64;
+    --secondary-color: #4a6572;
+    --background-color: #eaeaea;
+    --dark-color: #333;
 }
 
 body {
     background-color: var(--background-color);
-    color: var(--dark-color); /* Основной текст темнее */
+    color: var(--dark-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;

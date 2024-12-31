@@ -293,3 +293,25 @@ The app was tested across multiple devices (desktop, tablet, mobile) using Chrom
 - I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. The result is following: "Document checking completed. No errors or warnings to show.".
 
 - I used the W3 CSS Validator to check my CSS script by Direct Input. The result is following: "Congratulations! No Error Found."
+
+### **WCAG Contrast Checker**
+The site was tested using the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to ensure compliance with WCAG (Web Content Accessibility Guidelines).
+
+- **General Results**:  
+  The majority of the site achieved **high contrast ratings**, ensuring good readability and accessibility for users with visual impairments.
+
+- **Exceptions Identified**:
+  1. **Welcome Message Tagline**:  
+     - The tagline text is compared against the background color rather than the image overlay it resides on.
+     - Result: Contrast ratio does not meet WCAG standards in this scenario.
+
+     ![WCAG Contrast Landing](static/images/readme/dividewise_wcag-contrast-landing.png) 
+    
+  2. **Contributor Filter Text**:  
+     - Black text in the contributor filter is compared against the container's dark background instead of the white filter background.
+     - Result: Contrast ratio does not meet WCAG standards for text visibility.
+
+     ![WCAG Contrast Filter](static/images/readme/dividewise_wcag-contrast-filter.png) 
+
+- **Planned Updates**:
+  These exceptions will be reviewed in future iterations to ensure full compliance with WCAG accessibility standards while maintaining the design aesthetics of the site.
