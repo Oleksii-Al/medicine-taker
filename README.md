@@ -17,13 +17,12 @@ The responsive website allows registered users to add medication and create medi
  1. [ UX ](#ux)
  2. [ Agile Development ](#agile-development)
  3. [ Features implemented ](#features-implemented)  
- 4. [ Features Left to Implement ](#features-left-to-implement)  
- 5. [ Technology used ](#technology-used) 
- 6. [ Testing ](#testing-and-Validation)  
- 7. [ Bugs ](#known-bugs)  
- 8. [ Deployment](#deployment)
- 9. [ Resources ](#resources)  
- 10. [ Credits and acknowledgements ](#credits-and-acknowledgements)
+ 4. [ Technology used ](#technology-stack) 
+ 5. [ Testing ](#testing)  
+ 6. [ Validation ](#validation)
+ 7. [ Deployment](#deployment)
+ 8. [ Resources ](#resources)  
+ 9. [ Credits and acknowledgements ](#credits-and-acknowledgements)
 
 ---
 
@@ -143,7 +142,7 @@ By leveraging Agile principles and utilizing the Kanban board effectively, the d
 13. **Title:** Alert messages
    - As a user, I want to receive feedback through alert messages so that I know when my actions are successful or if there are any issues.
 
-# Features Implemented
+# **Features Implemented**
 
 ## Home page:
   - General information is displayed
@@ -191,7 +190,7 @@ By leveraging Agile principles and utilizing the Kanban board effectively, the d
    - Navbar collapses into a burger bar for improved navigation on smaller screens.
    - The medication card is changed for smaller screen to provide better readability
 
-# Technology Stack
+# **Technology Stack**
 
 - HTML - for page structure
 - CSS - for custom styling
@@ -206,8 +205,6 @@ By leveraging Agile principles and utilizing the Kanban board effectively, the d
 - GitHub - for storing the code and for the Kanban board
 - Heroku - for hosting and deployement of this project
 - Git - for version control
-
-# Testing and Validation
 
 ## Responsiveness
 
@@ -226,7 +223,7 @@ The app was tested across multiple devices (desktop, tablet, mobile) using Chrom
 | ![Add Medication Page Desktop](static/images/readme/add_d.jpg) | ![Add Medication Page Mobile](static/images/readme/add_m.jpg)
 | ![Edit Medication Page Desktop](static/images/readme/edit_d.jpg) | ![Edit Medication Page Mobile](static/images/readme/edit_m.jpg)
 
-## Testing 
+# **Testing** 
 
 ### Manual Testing Results
 
@@ -288,7 +285,7 @@ The app was tested across multiple devices (desktop, tablet, mobile) using Chrom
 | Logout functionality                   | Pass   |
 | Redirect after successful logout       | Pass   |
 
-### Validation
+# **Validation**
 
 - I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. The result is following: "Document checking completed. No errors or warnings to show.".
 
@@ -313,7 +310,7 @@ The site was tested using the [WebAIM Contrast Checker](https://webaim.org/resou
 
 ![Python Linter Result](static/images/readme/linter.jpg)
 
-# Deployment 
+# **Deployment** 
 
 ## Deployment Guide for the Medication Assistant Website
 
@@ -371,7 +368,7 @@ Creating a clone enables you to make a local copy of the repository. Follow thes
 - Open your terminal and change the directory to your desired location.
 - Use `git clone` followed by the copied repository URL.
 
-### **Resources**
+# **Resources**
 
 - [Code Institute Full Stack Development course materials](https://codeinstitute.net/) 
 - [Django docs](https://www.djangoproject.com/)
@@ -381,7 +378,7 @@ Creating a clone enables you to make a local copy of the repository. Follow thes
 - [Code Institude Slack](https://slack.com/)
 - [ChatGPT](https://chatgpt.com/)
 
-# Credits and Acknowledgements
+# **Credits and Acknowledgements**
 - **Code Institute** course content for providing the knowledge and guidance to build the project
 - GitHub user **katiejanecoughlan** and **jack-brosnan** for sharing a best practice README structure
 - Course Facilitator **David Calikes** for his unwaving support and guidance during the process 
