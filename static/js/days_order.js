@@ -18,7 +18,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 week_order.innerText = "Monday-Sunday";
             }
         });
-    } else {
-        console.log("Element with id 'toggle-order' not found.");
-    }
+    } 
 });
