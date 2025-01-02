@@ -28,6 +28,7 @@ class MedicationCardForm(forms.ModelForm):
         required = True
     )
 
+
     def clean(self):
         """
         Validates and cleans the form data for the MedicationCard model.

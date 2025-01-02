@@ -3,7 +3,6 @@ from django.db.models import CASCADE
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-
 # Create your models here.
 
 DAYS = (
@@ -57,6 +56,7 @@ class MedicationSchedule(models.Model):
     status = models.BooleanField(default = False) #False - medication isn't taken / True - is taken
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
         """
