@@ -229,10 +229,11 @@ form p {
 
 /* Alert style */
 .alert.success {
-    background-color: var(--secondary-color);
+    background-color: darkgreen;
     color: #fff;
     margin: 1em 5em;
     text-align: center;
+    font-size: large;
 }
 
 .alert.error {
@@ -240,6 +241,7 @@ form p {
     color: var(--background-color);
     margin: 1em 5em;
     text-align: center;
+    font-size: large;
 }
 
 /* Home page */
