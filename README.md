@@ -288,8 +288,10 @@ The app was tested across multiple devices (desktop, tablet, mobile) using Chrom
 # **Validation**
 
 - I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. The result is following: "Document checking completed. No errors or warnings to show.".
+![HTML Validation](static/images/readme/html_v.jpg)
 
 - I used the W3 CSS Validator to check my CSS script by Direct Input. The result is following: "Congratulations! No Error Found."
+![CSS Validation](static/images/readme/css_v.jpg)
 
 ### **WCAG Contrast Checker**
 The site was tested using the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to ensure compliance with WCAG (Web Content Accessibility Guidelines).
