@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.db import IntegrityError
 from .models import MedicationCard, MedicationSchedule, DAYS
 from .forms import MedicationCardForm
 
@@ -25,22 +26,28 @@ def medication_add(request):
     if request.method == "POST":
         medication_form = MedicationCardForm(request.POST)
         if medication_form.is_valid():
-            medication = medication_form.save(commit=False)
-            medication.user = request.user
-            medication.save()
-            for day in medication.days:
-                MedicationSchedule.objects.create(
-                    medication=medication,
-                    day_of_week=day,
-                    time=medication.time,
-                    status=False,
+            try:
+                medication = medication_form.save(commit=False)
+                medication.user = request.user
+                medication.save()
+                for day in medication.days:
+                    MedicationSchedule.objects.create(
+                        medication=medication,
+                        day_of_week=day,
+                        time=medication.time,
+                        status=False,
+                    )
+                messages.success(
+                    request, "Medication is added"
                 )
+                
+                return redirect('medication')
 
-            messages.success(
-                request, "Medication is added"
-            )
-
-            return redirect('medication')
+            except IntegrityError:
+                messages.error(
+                    request,
+                    "A medication with this name already exists. Please choose a different name."
+                )
     else:
         medication_form = MedicationCardForm()
 
