@@ -381,8 +381,8 @@ Creating a clone enables you to make a local copy of the repository. Follow thes
 - [ChatGPT](https://chatgpt.com/)
 
 # **Credits and Acknowledgements**
-- **Code Institute** course content for providing the knowledge and guidance to build the project
+- **Code Institute** course content for providing the structured templates and guidance throughout the project
 - GitHub user **katiejanecoughlan** and **jack-brosnan** for sharing a best practice README structure
-- Course Facilitator **David Calikes** for his unwaving support and guidance during the process 
-- Tutor **Kevin Loughrey** for his helpful SME sessions and constant support
+- Course Facilitator **David Calikes** for his support and guidance during the course 
+- Tutor **Kevin Loughrey** for his helpful SME sessions and expert advice
 - ChatGpt for helping in debugging and understanding hard topics.
